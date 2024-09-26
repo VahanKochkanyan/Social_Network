@@ -7,8 +7,11 @@ import { handleUpdateLogin, handleUpdatePassword } from "../../../lib/Api"
 export const Settings = () => {
 
     const [error, setError] = useState<string>("")
-    
+
     const navigate = useNavigate()
+
+
+    
     const { register: registerPassword, handleSubmit: handleSubmitPassword, formState: { errors: passwordErrors } } = useForm<IUpdatePassword>()
     const { register: registerLogin, handleSubmit: handleSubmitLogin, formState: { errors: loginErrors } } = useForm<IUpdateLogin>()
 
