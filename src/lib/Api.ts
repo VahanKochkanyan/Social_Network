@@ -13,6 +13,7 @@ export const handleSignup = async (user: InputUser): Promise<IResponse> => {
     return response.data
 }
 
+
 //Login
 export const handleLogin = async (user: LoginUser): Promise<IResponse> => {
     const response = await Axios.post('/login', user)
@@ -34,12 +35,12 @@ export const handleLogout = async (): Promise<IResponse> => {
 }
 
 
-
 //Update_Password
 export const handleUpdatePassword = async (password:IUpdatePassword):Promise<IResponse> => {
     const response = await Axios.patch("/update/password",password)
     return response.data
 }
+
 
 //Update_Login
 export const handleUpdateLogin = async (login: IUpdateLogin): Promise<IResponse> => {
@@ -48,10 +49,15 @@ export const handleUpdateLogin = async (login: IUpdateLogin): Promise<IResponse>
 }
 
 
-
 //Picture
 export const handlePictureUpload = async (data: FormData): Promise<IResponse> => {
     const response = await Axios.patch("/profile/upload", data)
     return response.data
 }
 
+
+//Cover
+export const handleCoverUpload = async (data: FormData): Promise<IResponse> => {
+    const response = await Axios.patch("/cover/upload", data)
+    return response.data
+}
