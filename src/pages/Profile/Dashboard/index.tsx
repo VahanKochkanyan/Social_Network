@@ -18,8 +18,9 @@ export function Dashboard() {
         const form = new FormData();
         form.append("picture", file);
 
-        handlePictureUpload(form).then((response) => {
-          setAccount({ ...account, picture: response.payload as string });
+        handlePictureUpload(form)
+          .then((response) => {
+            setAccount({ ...account, picture: response.payload as string });
         });
       };
     };
@@ -32,8 +33,9 @@ export function Dashboard() {
         const form = new FormData();
         form.append("cover", file);
 
-        handleCoverUpload(form).then((response) => {
-          setAccount({ ...account, cover: response.payload as string });
+        handleCoverUpload(form)
+          .then((response) => {
+            setAccount({ ...account, cover: response.payload as string });
         });
       };
     };
