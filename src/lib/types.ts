@@ -4,9 +4,10 @@ export interface IUser {
     surname: string
     login: string
     password: string
-    isPrivate: string
+    isPrivate: boolean
     cover: string
     picture: string
+
 }
 
 export type InputUser = Omit<IUser, 'id' | 'isPrivate' | 'cover' | 'picture'>
@@ -38,4 +39,38 @@ export interface IUpdatePassword {
 export interface IUpdateLogin{
     password:string
     login:string
+}
+
+
+export interface IPosts {
+    id: number
+    title: string
+    picture: string
+}
+
+
+export interface IAccount extends IUser {
+    followers: IUser[]
+    following: IUser[]
+    payload?: unknown
+
+}
+
+
+export interface IUserStatus {
+    isPrivate: boolean;
+}
+
+export interface IAccount extends IUser {
+    posts?: IPosts[]
+
+    available: boolean
+
+    connection: {
+    blockedMe: boolean
+    didIBlock: boolean
+    following: boolean
+    followsMe: boolean
+    requested: boolean
+  }
 }

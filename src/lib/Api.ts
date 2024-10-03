@@ -1,5 +1,5 @@
 import axios from "axios";
-import { InputUser, IResponse, IUpdateLogin, IUpdatePassword, LoginUser } from "./types";
+import { IAccount, InputUser, IResponse, IUpdateLogin, IUpdatePassword, LoginUser } from "./types";
 
 const Axios = axios.create({
     baseURL: "http://localhost:4002",
@@ -59,5 +59,82 @@ export const handlePictureUpload = async (data: FormData): Promise<IResponse> =>
 //Cover
 export const handleCoverUpload = async (data: FormData): Promise<IResponse> => {
     const response = await Axios.patch("/cover/upload", data)
+    return response.data
+}
+
+
+//Posts
+export const handleGetPosts = async (): Promise<IResponse> => {
+    const response = await Axios.get("/posts")
+    return response.data
+}
+
+
+//PostCreation
+export const handlePostCreation = async (data: FormData): Promise<IResponse> => {
+    const response = await Axios.post("/posts", data)
+    return response.data
+}
+
+
+//Search
+export const handleSearch = async (text:string): Promise<IResponse> => {
+    const response = await Axios.get("/search/" + text)
+    return response.data
+}
+
+
+//Status
+export const handleSetAccountStatus = async (): Promise<IResponse> => {
+    const response = await Axios.patch("/account/set/")
+    return response.data
+}
+
+
+//Account User
+export const handleUsersPersonalPage = async (id: string): Promise<IAccount> => {
+    const response = await Axios.get(`/account/${id}`)
+    return response.data
+}
+
+
+//Send Follow
+export const handleSendFollow = async (id: string): Promise<IResponse> => {
+    const response = await Axios.post("/account/follow/" + id)
+    return response.data
+}
+
+
+//Unfollow
+export const handleUnfollow = async (id: string): Promise<IResponse> => {
+    const response = await Axios.post("/account/unfollow/" + id)
+    return response.data
+}
+
+
+//Request Cancel
+export const handleCancelRequest = async (id: string): Promise<IResponse> => {
+    const response = await Axios.delete("/request/cancel/" + id)
+    return response.data
+}
+
+
+//Requests-Private Page
+export const handleRequests = async (): Promise<IResponse> => {
+    const response = await Axios.get("/requests")
+    return response.data
+}
+
+
+//Accept
+export const handleAcceptRequest = async (id:string): Promise<IResponse> => {
+    const response = await Axios.patch("/requests/accept/" + id)
+    return response.data
+}
+
+
+//Decline
+export const handleDeclineRequest = async (id: string): Promise<IResponse> => {
+    const response = await Axios.patch("/requests/decline/" + id)
     return response.data
 }

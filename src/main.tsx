@@ -7,16 +7,23 @@ import { Login } from './pages/Login'
 import { Profile } from './pages/Profile'
 import { Dashboard } from './pages/Profile/Dashboard'
 import { Settings } from './pages/Profile/Settings'
+import { Posts } from './pages/Profile/Posts'
+import { Search } from './pages/Profile/Search'
+import { Account } from './pages/Profile/Account'
+import { Requests } from './pages/Profile/Request'
 
 const routes = createBrowserRouter([
+  
   {
     path:'',
     element:<Signup/>
   },
+
   {
     path:'/login',
     element:<Login/>
   },
+
   {
     path: '/profile',
     element: <Profile/>,
@@ -30,10 +37,29 @@ const routes = createBrowserRouter([
       {
         path: "/profile/settings",
         element: <Settings/>
+      },
+
+      {
+        path: "posts",
+        element: <Posts/>
+      },
+
+      {
+        path: 'search',
+        element: <Search/>
+      },
+
+      {
+        path: ':id',
+        element: <Account/>
+      }, 
+
+      {
+        path: 'requests',
+        element: <Requests/>
       }
-
+      
     ]
-
   }
 ])
 

@@ -1,11 +1,14 @@
-import { EditLog } from "../../../components/EditLog";
-import { EditPwd } from "../../../components/EditPwd";
+import { EditLogin } from "../../../components/EditLogin";
+import { EditPassword } from "../../../components/EditPassword";
+import { UpdatePrivacy } from "../../../components/SetAccountStatus";
 
 export const Settings = () => {
+
   return ( 
     <>
-        <EditPwd/>
-        <EditLog/>
+      <EditPassword />
+      <EditLogin />
+      <UpdatePrivacy/>
     </>
   );
 };

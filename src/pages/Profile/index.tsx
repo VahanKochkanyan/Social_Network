@@ -42,6 +42,8 @@ export const Profile = () => {
             <NavLink to="/profile/posts">Posts</NavLink>
             <NavLink to="/profile/followers">Followers</NavLink>
             <NavLink to="/profile/followings">Followings</NavLink>
+            <NavLink to="/profile/requests">Requests</NavLink>
+            {account.isPrivate == true ? <NavLink to="/profile/requests">Requests</NavLink> : null}
             <button onClick={onSubmit}>Logout</button>
         </nav>
 

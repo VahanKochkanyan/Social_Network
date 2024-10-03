@@ -132,9 +132,11 @@ export function Dashboard() {
                     <MDBCardText className="mb-1 h5">{account.following.length}</MDBCardText>
                     <MDBCardText className="small text-muted mb-0">Following</MDBCardText>
                   </div>
+                  {account.isPrivate ? <MDBCardImage
+                    src="https://www.shutterstock.com/image-vector/user-login-authenticate-icon-vector-600nw-263541554.jpg"
+                    style={{ cursor: 'pointer' ,height:60, width:60}}/> : null}
                 </div>
               </div>
-
               <MDBCardBody className="text-black p-4">
                 <div className="mb-5">
                   <p className="lead fw-normal mb-1">About</p>
